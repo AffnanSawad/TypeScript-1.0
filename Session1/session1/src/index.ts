@@ -20,10 +20,29 @@
 
     console.log(age,names,isDeveloper,income,skills,salary);
 
+
+    //  normal object
+    const firstObject : {
+
+        name_1 : string ;
+       readonly roll : number ;
+        section : 'A' ;
+        student : boolean ;
+        salary?: undefined ;
+    
+    }  = {
+        name_1 : 'Affnan',
+        roll : 2 ,
+        section : 'A',
+        student: true ,
+        salary: undefined 
+    }
+    
+    console.log(firstObject);
    
     //  Object + type allias
 
-    type mySelf = {
+    type mySelf1 = {
       
         name: string ;
         age : number ;
@@ -33,7 +52,7 @@
     }
 
 
-    const my_Self : mySelf = {
+    const my_Self : mySelf1 = {
 
 
         name: 'Affnan',
@@ -72,7 +91,7 @@
     console.log(summ2);
 
 
-    //  Destructuring ;
+    // Spread operator;
 
     const arr_1 : number[] = [2,3,4,5,6] ;
     const arr_2 : number [ ] = [7,8,9,10] ;
@@ -81,9 +100,15 @@
 
     console.log(arr_1);
 
+
+    //  destructing
+    const newArray : number[] = [1,2,3,4,5,6,7,8,9,10] ;
+
+    const [ x ,y ,  , ...restNumbers] = newArray ;
+
     //  object destructuring ;
 
-    const my_Self_2 : mySelf = {
+    const my_Self_2 : mySelf1 = {
 
         name: 'Affnan',
         age : 21 ,
@@ -92,7 +117,7 @@
    
     }
 
-    const final_myself_2 : mySelf = {
+    const final_myself_2 : mySelf1 = {
 
         ...my_Self_2,
 
@@ -103,15 +128,7 @@
     console.log(final_myself_2);
 
    
-    //  REST OPERATOR 
-
-    const  ages : number [ ] = [1,2,3,4,5,6] ;
-
-    const [a,b,c, , ...rest_values] = ages ;
-
-    console.log('Fisrt' , a) ;
-    console.log('Second', b) ;
-    console.log('Rest', rest_values);
+   
 
 
     //  type allias  : arrays ;
@@ -152,9 +169,20 @@
   console.log(optional_chaining);
 
 
-  const nullish = address.address1.permanent ?? 'Guest';
+//  nullish operator
+const logIn = null ;
 
-  console.log(nullish);
+const Authentication = logIn ?? 'Guest User' ;
+
+console.log(Authentication);
+
+
+//  -------- MODULE 1 ENDED -----------
+
+
+
+//  ------------ MODULE 2 STARTING -----------------
+
 
 
 //   Assertion : type select kore dewa.
