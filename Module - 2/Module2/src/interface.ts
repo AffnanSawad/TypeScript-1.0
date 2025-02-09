@@ -34,7 +34,7 @@
    
     }
 
-    const Mamdud = {
+    const Mamdud : user2 = {
         name : 'Mamdud',
         age : 18
     }

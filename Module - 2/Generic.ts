@@ -38,11 +38,24 @@
 
 ]
 
-// 
+// Generic Tupple
 
 type Generic_Array1< T , X > = [T,X]
 
 const serial_maintain : Generic_Array1< string , number > = ['affnan' , 19] ;
+
+
+const result2 : Generic_Array1< number , { name : string , age : number} >  =  [ 
+
+ 20 ,
+
+ {
+    name: 'Affnan Sawad',
+    age: 22
+ }
+
+
+]  
 
 
 

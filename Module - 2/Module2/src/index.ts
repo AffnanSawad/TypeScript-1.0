@@ -19,15 +19,18 @@ const KgToGm = ( a : number | string ) : number | string | undefined => {
 
  if( typeof a === 'string' ){
 
-    const result = parseFloat(a) * 1000 ;
+    const result : number = parseFloat(a) * 1000 ;
 
     return result ;
- }
+ 
+   }
  if( typeof a === 'number'){
 
-    const result = a * 1000;
+    const result : number = a * 1000;
+   
     return result ;
- }
+ 
+   }
 
 }
 
@@ -36,10 +39,21 @@ const R2 = KgToGm(10) as number ;
 
 
 
+//  try catch
 
+type CustomError = {
 
+   message : string ;
 
+}
 
+ try{
+
+ }
+catch(error){
+
+   console.log( (error as CustomError).message   )
+}
 
 
 
