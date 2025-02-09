@@ -187,125 +187,333 @@ console.log(Authentication);
 
 //   Assertion : type select kore dewa.
 
-const age2 = '19'
-const age22 = 19
+     //  Type Assertion => type select kore dewa.
+    
+     let age1 : any ;
+    
+     age1= 20 ;
+     
+     age1 = 'My age is 20' ;
+     
+     ( age1 as number  );
+     
+     (  age1 as string );
+     
+     //  Evabe select kore dewa jai....
+     
+     
+     const KgToGm = ( a : number | string ) : number | string | undefined => {
+     
+      if( typeof a === 'string' ){
+     
+         const result : number = parseFloat(a) * 1000 ;
+     
+         return result ;
+      
+        }
+      if( typeof a === 'number'){
+     
+         const result : number = a * 1000;
+        
+         return result ;
+      
+        }
+     
+     }
+     
+     const R1 = KgToGm('10') as string ;
+     const R2 = KgToGm(10) as number ;
+     
+     
+     
+     //  try catch
+     
+     type CustomError = {
+     
+        message : string ;
+     
+     }
+     
+      try{
+     
+      }
+     catch(error){
+     
+        console.log( (error as CustomError).message   )
+     }
+      
 
-console.log( age2 as string )
-console.log( age22 as number)
+     
+    // Interface  :
 
+    type user1 = {
 
-//  Interface : OBJECT + OOP ER KHETRE USE HOI ... INTERFACE E MARCHING ER SUBIDHA ASE . JETA TYPE E NAI.
-
-interface iSelf {
-
-    name: string ;
-    age : number | string ;
-    skilss : string[ ] ;
-
-}
-
-//  marching = mane property add kortsi
-interface iSelf {
-    isDeveloper : boolean ;
-}
-
-//  property values :
-const iinput : iSelf = {
-    name :'affnan',
-    age : 20 ,
-    skilss: ['html','css'] ,
-    isDeveloper : true 
-}
-
-// 
-console.log(iinput);
-
-
-//  Generic :
-
-//  Normal :
- const arra_num : number [ ] = [1,2,3,4,5] ;
- const arra_strig : string [ ] = ['a','b','c'] ;
- const arra_boolean : boolean [ ] = [true , false] ;
-
-//   
-
-const arra_num1 : Array<number> = [1,2,3,4,5] ;
-const arra_strig1 : Array<string> = ['a','b','c'] ;
-const arra_boolean1 : Array<boolean> = [true , false] ;
-
-//  Generics : type diye ekta structure banai parameter niye , diif jagai parameter value bosiye kora.
-
-// T hocce parameter :
-
-type Generic_with_array< T > = Array< T >
-
-const arra_num11 :Generic_with_array<number>= [1,2,3,4,5] ;
-
-const arra_strig11 :Generic_with_array<string>= ['a','b'] ;
-
-const arra_boolean11: Generic_with_array<boolean> = [true , false] ;
-
-console.log(arra_num11,arra_strig11,arra_boolean11) ;
-
-
-//  Interface + generics 
-
-interface iiuc< T , X , Y > {
-
-    name : string ;
-    age : T ;
-    isDeveloper : X ;
-    role : Y 
-}
-
-const iiuc_student : iiuc< number , boolean , string> = {
-
- name : 'Affnan' ,
- age : 21 ,
- isDeveloper : true ,
- role: 'Full-Stack-Developer'
-
-}
-
-console.log(iiuc_student);
-
-// example : 2
-const iiuc_student_2 : iiuc< number , boolean , {frontEnd:boolean , backEnd: boolean} > = {
-   
-    name : 'Affnan' ,
-    age : 21 ,
-    isDeveloper : true ,
-    role: {
-        frontEnd : true ,
-        backEnd : true
+        name: String ;
+        age: number ;
+    
     }
 
+    const Affnan : user1 = {
+        name : 'Affnan Sawad',
+        age : 20 
+    }
+
+    //  new property add korte hole
+
+    type newUser1 = user1 & { role : string  }
+
+    const Affnan1 : newUser1 = {
+        name : 'Affnan Sawad',
+        age : 20 ,
+        role : 'Full Stack Developer'
+    }
+
+
+    //  Same kaj Interface diye korte hole
+
+   interface user2 {
+
+    name: string ;
+    age: number;
+   
+    }
+
+    const Mamdud : user2 = {
+        name : 'Mamdud',
+        age : 18
+    }
+
+
+    interface newUser2 extends user2 {
+        role: 'CA'
+    }
+
+    const Mamdud2 : newUser2 = {
+        name:'Mamdud',
+        age : 18,
+        role: 'CA'
+
+    }
+
+
+    //  ARRAY
+    interface Array1 {
+
+        [index : number] : number
+   
+    }
+
+    const mySalary : Array1 = [70000,80000,90000,]
+
+
+    //  Object er jnno Interface use kora valo.. Array , function er jnno Type use kora valo.
+
+   
+
+
+    // generic
+    const ages : Array<number> = [1,2,3]
+
+    // const name : string[] = ['affnan','sawad'] ;
+    
+    const names1 : Array<string> = ['affnan','sawad'] ;
+   
+    // Generic Type
+    type Generic_Array< T > = Array< T > 
+
+    const my_name : Generic_Array< string > = ['affnan','sawad']
+
+    const my_age : Generic_Array< number > = [20,18]
+   
+    const is_Developer : Generic_Array< boolean > = [true,true] ;
+
+
+    // Generic for objct
+
+    const object_generic : Generic_Array< {name : string , age : number } >  = [
+        
+        {
+      
+      name :' affnan' ,
+      age: 20 
+       }  ,
+
+    {
+        name : 'mamdud',
+        age : 20 ,
+        
+    }
+
+]
+
+// Generic Tupple
+
+type Generic_Array1< T , X > = [T,X]
+
+const serial_maintain : Generic_Array1< string , number > = ['affnan' , 19] ;
+
+
+const result2 : Generic_Array1< number , { name : string , age : number} >  =  [ 
+
+ 20 ,
+
+ {
+    name: 'Affnan Sawad',
+    age: 22
+ }
+
+
+]  
+
+
+
+// 
+
+
+interface Developer<T>{
+    name:string ;
+    age: number ;
+
+    skills : T 
+}   
+
+// 
+
+const Affnan2 : Developer< {role : string , salary : number}> = {
+
+    name : 'Affnan',
+    age : 25 ,
+
+    skills : {
+
+        role: 'Full Stack',
+        salary : 80000 
+    
+    }
 }
 
-console.log(iiuc_student_2);
 
+const Mamdud_Sawad : Developer< {
+    
+    role : string , 
+    salary : number ,
+    isAdmin : boolean
 
-//  Generic in Function :
+}
+     
+     > = {
 
-const addition =  <T1 , T2> ( x : T1 , y: T2) =>{
+    name : 'Mamdud',
+    age : 25 ,
 
-    return {  x  , y }  ;
+    skills : {
+
+        role: 'CA',
+        salary : 90000 ,
+        isAdmin : true 
+    
+    }
 }
 
-const values = addition<string , number>('My Salary is :', 80000);
 
-console.log( values)
+//  
+ // normal function :
+
+ const summation1 = ( params : number  ) => {
+
+    const result = params + 10 ;
+
+    return result
+ }
+
+const final = summation1(20);
+console.log(final);
 
 
 
+//  Function with generics :
+
+const addition = <T> ( parameter : T) : T[] => {
+     
+    return  [parameter];
+
+}
+ 
+const result_11 = addition<number>(20);
+console.log(result_11);
+
+
+//  Tupple 
+const profile = <T,X> ( parameter1 : T , parameter2 : X) : [T,X] =>{
+
+    return [parameter1,parameter2]
+
+}
+   
+const r_2 = profile< string , { age : number , Developer : boolean}>('Affnan', { age:21, Developer: true});
+
+console.log(r_2);
 
 
 
+// 
+ //  Constraints :  kichu value fixed kore dewa.
+
+    //  like kono course e Enroll korte hole name , email dite hoi. so ekane name , enroll must thakte hbe. as a fixed value. and it its called CONSTRAINTS ...
 
 
+    const Profile_Enroll = < T extends { name : string , email: string}>( parameter : T) => {
 
 
+        const course = ' WEB DEVELOPMENT' ;
+
+        return {
+            ...parameter ,
+            course
+        }
+    }
+   
+    //  1
+    const result_12 = Profile_Enroll( {
+        name : 'Affnan Sawad' ,
+        email : ' affnansawad@gmail.com',
+        is_Developer : true 
+    }   )
+
+    console.log(result_12);
+
+    //  2
+    const result_2 = Profile_Enroll( {
+        name : 'Hasnat Abdullah' ,
+        email : 'hasnat@gmail.com',
+        is_Developer : false ,
+        is_Politician : true
+    }   )
+
+    console.log(result_2);
+
+
+//   Constrains with KeyOf
+//  KeyOf used like as a UNION (|)
+
+   type Vehicles = {
+      
+    bike :  false  ;
+    cars : 'BMW'  ;
+    bus :  'LAYlAND'
+    
+   }
+   
+
+//    keyOf 
+
+type  Affnan  =  keyof Vehicles 
+
+const result12 : Affnan =   "cars"
+
+
+console.log(result12);
+  
 
 
 
