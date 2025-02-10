@@ -1,6 +1,3 @@
-Here's a **README.md** description for your GitHub repo:
-
----
 
 # TypeScript Basics, Fundamentals & OOP 🚀
 
