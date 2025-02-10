@@ -16,8 +16,4 @@ Each topic is well-documented with **examples and explanations** to help underst
 ## 🔥 Why TypeScript?
 TypeScript enhances JavaScript by adding **static typing, better tooling support, and improved code maintainability**, making it a great choice for scalable applications.
 
-Feel free to explore, fork, or contribute! 🚀
 
----
-
-Let me know if you want any modifications! 😊
