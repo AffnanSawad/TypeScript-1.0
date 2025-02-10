@@ -515,6 +515,121 @@ const result12 : Affnan =   "cars"
 console.log(result12);
   
 
+// ASYNCHRONOUS 
+
+const todo = async () =>{
+
+    const res = await fetch('data.json')
+
+    const data = res.json ;
+
+    return data ;
+}
+
+
+
+// Asyncronous 
+
+const createPromise = () : Promise<string> =>{
+
+ 
+   return new Promise<string>(  (resolve , reject) =>{
+
+   const data : string = 'Data is comimg'
+
+   if(data){
+    resolve(data)
+   } else{
+    reject(data);
+   }
+
+   }  )
+
+}
+
+// calling
+const callingFunction =  async()   =>{
+
+    const data : string = await createPromise();
+
+    console.log(data);
+}
+
+callingFunction();
+
+
+//  Conditional Types
+
+type a = undefined ;
+type b = string ;
+
+//  conditions ;
+
+type x = a extends undefined ? undefined  : null ;
+
+type y = a extends string ? true  : b extends string ? true : false ;
+
+
+ 
+   // normal mapping
+   const array12 : number[] = [1,2,3,4,5];
+
+   const mappingArray = array12.map( (item)=> item.toString()  )
+   console.log(mappingArray);
+
+//  Mapped Types :
+
+type Array_Mapped = {
+   height : string ;
+   width: string ;
+}
+
+
+type mapping_Array = {
+
+   [ item in keyof Array_Mapped  ] : number ;
+
+}
+
+
+
+//  UTILITY TYPES : PICK , OMIT , REQUIRE , READONLY etc
+
+type information = {
+
+    name : string ;
+    age : number ;
+    email? : string ;
+    number : string ;
+
+}
+
+// pick : jkno propeyty pick kora
+ 
+type info1 = Pick< information , "name" | "age" | "email"    >
+
+// omit : bad dewa
+
+type info2 = Omit < information ,  "email" | "number" >
+
+//  require : require evrything
+
+type info3 = Required< information>
+
+
+//  Read Only : cant change the value of the properties
+
+type info4 = Readonly< information >
+
+
+
+
+
+
+
+
+
+        //  ----------- END OF MODULE - 2 ---------------- //
 
 
 
