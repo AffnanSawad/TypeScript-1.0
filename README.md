@@ -1,4 +1,3 @@
-
 # TypeScript Basics, Fundamentals & OOP 🚀
 
 This repository contains my learning journey of **TypeScript**, covering its **basics, fundamentals, and Object-Oriented Programming (OOP) concepts**. 
