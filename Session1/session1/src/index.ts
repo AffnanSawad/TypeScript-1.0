@@ -623,13 +623,43 @@ type info4 = Readonly< information >
 
 
 
-
-
-
-
-
-
         //  ----------- END OF MODULE - 2 ---------------- //
+
+
+
+     //-------------MODULE -3 STARTED -----------------//
+      
+    //  Class : 
+
+     class Personal_Info{
+
+    
+        constructor( public name : string , public age : number , public role: string)
+         
+        {  }
+
+        showInformation(){
+
+            console.log( ` My name is ${this.name} , i am ${this.age} years old and I am a ${this.role}`);
+        }
+
+     }
+
+    //  calling
+    const Result_1 = new Personal_Info( "Affnan Sawad" , 22 , "Full Stack Developer")
+    const Result_2 = new Personal_Info( "Mamdud Sawad" , 18 , "Financial Analyst")
+
+ // Calling method to display information
+Result_1.showInformation();
+Result_2.showInformation();
+
+
+
+
+
+
+
+
 
 
 
