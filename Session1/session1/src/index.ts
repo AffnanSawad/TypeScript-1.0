@@ -958,13 +958,120 @@ console.log( Count.decrimant())
 
 
 
+// //   POLYMORPHISM
+
+ class Person{
+  
+    getSleep(){
+
+        console.log(`I sleep For 10 hours`)
+    }
+
+ }
+
+
+ class student extends Person{
+   
+    getSleep(){
+
+        console.log(`I sleep For 8 hours`)
+    }
+
+ }
+
+
+ class Developer1 extends Person{
+   
+    getSleep(){
+
+        console.log(`I sleep For 6 hours`)
+    
+    }
+
+ }
+
+
+ const SleepingTime = ( params : Person)=>{
+    
+    console.log(params.getSleep())
+
+ }
+
+
+ const r1 = new Person()
+ const r2 = new student()
+ const r3 = new Developer1()
+
+ SleepingTime(r1);
+ SleepingTime(r2);
+ SleepingTime(r3);
+
+//  Anwswer :  10 , 8 , 6 hour sleep kore
+
+
+//  Polymorphism : ekta form theke onekgula form . dekte same bt variable /output different .
+
+// parent
+class TotalSemester {
+
+
+    getCgpa(){
+
+        console.log( ' I obtained 3.65 cgpa')
+    }
+}
+
+// childrens 
+class inIIUC extends TotalSemester {
+
+    constructor( public gpa : number) {   super()   }
+
+    getCgpa(){
+       
+        
+        console.log(`Got Cgpa in IIUC  ${this.gpa*2} `)
+
+    }
+}
+
+
+// childrens 
+class inCUNY extends TotalSemester {
+
+    constructor( public gpa : number) {   super()   }
+
+    getCgpa(){
+       
+        
+        console.log(`Got Cgpa in CUNY  ${this.gpa*2} `)
+
+    }
+}
+
+
+// calling function
+
+const showCgpa = ( parameter : TotalSemester) =>{
+
+    parameter.getCgpa();
+}
+
+const x1 = new TotalSemester();
+const x2 = new inIIUC(1.65);
+const x3 = new inCUNY(1.75);
+
+showCgpa(x1)
+showCgpa(x2)
+showCgpa(x3)
+
+
+// I obtained 3.65 cgpa
+// Got Cgpa in IIUC 3.3
+// Got Cgpa in CUNY 3.5
 
 
 
-
-
-
-
+//  ENCAPSULATION : class er property , value gula jate sobai use korte na kore pare sjnno variable ke private , protected korake Encapsulation bole.  [ Similar to Access_Modifier. ]
 
 
 
